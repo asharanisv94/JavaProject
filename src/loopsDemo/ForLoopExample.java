@@ -19,12 +19,12 @@ public class ForLoopExample {
 		for (int counter = 1; counter <= 3; counter++) {
 			System.out.println("Enter the PIN");
 			enteredPIN = sc.nextInt();
-					if (actualPIN == enteredPIN) {
-						System.out.println("Entered PIN is correct");
-						System.out.println("Enter the amount to be withdrawn:");
-						withdrawAmount = sc.nextInt();
-					
-	
+			if (actualPIN == enteredPIN) {
+
+				System.out.println("Entered PIN is correct");
+				System.out.println("Enter the amount to be withdrawn:");
+				withdrawAmount = sc.nextInt();
+
 						if (balance >= withdrawAmount) {
 							System.out.println("Cash withdrawn in amount of: " + withdrawAmount);
 							System.out.println("Please collect the amount");
@@ -34,18 +34,18 @@ public class ForLoopExample {
 						} else {
 							System.out.println("Insufficient balance");
 							System.out.println("Current account balance is 10000");
-						
+		
 						}
-					
-					
-						break;
-					}
+
+				break;
+			}
 
 			else {
-						System.out.println("Entered PIN is incorrect");
-						if (counter == 3)
-							System.out.println("Pin entered 3 times.Card locked");
-					}
+				System.out.println("Entered PIN is incorrect");
+				if (counter == 3)
+					System.out.println("Pin entered 3 times.Card locked");
+			}
 		}
 
-	}}
+	}
+}

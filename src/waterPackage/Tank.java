@@ -7,14 +7,17 @@ public class Tank {
 
 	void fillWater() {
 
-		for (waterLevel =7; waterLevel <= 100; waterLevel = waterLevel + 10)
+		for (waterLevel =0; waterLevel <= 100; waterLevel = waterLevel + 10)
 
 		{
 			System.out.println("Water level in the tank is now " + waterLevel + " liters.");
 			left = 100 - waterLevel;
 			if(waterLevel==100)
-			{System.out.println("Tank capacity is 100 litres.Tank will overflow");}
-	
+			{
+				System.out.println("Tank capacity is 100 litres.Tank will overflow");
+		break;
+			}
+			
 		}
 
 		if (waterLevel > 100) {
