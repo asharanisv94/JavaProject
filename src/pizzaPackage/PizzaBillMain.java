@@ -1,12 +1,12 @@
 package pizzaPackage;
 
-public class pizzaPriceMain {
+public class PizzaBillMain {
 
 	public static void main(String[] args) {
-		PizzaPrice p=new PizzaPrice();
+		PizzaBill p=new PizzaBill();
 		
 		
-		p.pizzaBill();
+		p.pizzaPrice();
 		
 	}
 

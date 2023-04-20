@@ -33,7 +33,6 @@ public class CrsScoreMain {
 
 		c.adaptability();
 		c.ageScore();
-
 		c.ieltsScore(listeningPoints, speakingPoints, readingPoints, writingPoints);
 		c.finalCrsScore();
 

@@ -10,10 +10,6 @@ public class CrsScore {
 	int ieltsTotalScore = 0;
 	int adaptabilityScoreTotal = 0;
 
-	
-	
-	
-
 	int finalScore = 0;
 
 	void educationLevel() {
@@ -40,8 +36,8 @@ public class CrsScore {
 
 	void experienceLevel() {
 		int experienceLevel;
-		System.out.println("Enter your experience Levelfrom below.Please enter the valid option number");
-		System.out.println("1.4-5 years \n2.6 or more");
+		System.out.println("Enter your experience Levelfrom below list.Please enter the valid option number");
+		System.out.println("1.4-5 years \n2.6 or more \n3.NONE of above");
 		experienceLevel = sc.nextInt();
 
 		if (experienceLevel == 1) {
@@ -49,6 +45,9 @@ public class CrsScore {
 
 		} else if (experienceLevel == 2) {
 			experienceScore = 15;
+
+		} else if (experienceLevel == 3) {
+			experienceScore = 0;
 
 		} else {
 			System.out.println("Invalid Option Number selected");
@@ -113,13 +112,13 @@ public class CrsScore {
 	}
 
 	void adaptability() {
-		boolean isAdaptability = false;
+
 		boolean isAdaptabilityRelative = false;
 		boolean isAdaptabilityCanadaEducation = false;
 		boolean isAdaptabilityNoc = false;
 		System.out.println("Please enter true or false for the below");
 		System.out.println(
-				"DO you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece) who is a Canadian Citizen or PR holder");
+				"DO you have a relative  in Canada(Parents, Grand Parents, Brother, Sister, Aunt, Uncle, Nephew or Niece who is a Canadian Citizen or PR holder");
 		isAdaptabilityRelative = sc.nextBoolean();
 
 		if (isAdaptabilityRelative) {
@@ -142,16 +141,16 @@ public class CrsScore {
 	}
 
 	void ageScore() {
-		int[] age = new int[48];
+
 		int[] agePoint = new int[48];
 
 		int ageCounter = 12;
-		for (int i = 1; i < age.length; i++) {
-			age[i] = i;
+		for (int i = 1; i < agePoint.length; i++) {
+
 			if (i < 18) {
 				agePoint[i] = 0;
 			} else if (i >= 18 && i <= 35) {
-				agePoint[i] = ageCounter;
+				agePoint[i] = 12;
 			} else if (i > 35) {
 				ageCounter = ageCounter - 1;
 				agePoint[i] = ageCounter;
@@ -160,14 +159,9 @@ public class CrsScore {
 		}
 
 		System.out.println("Enter Your age");
-		int ageInput = sc.nextInt();
+		int age = sc.nextInt();
 
-		for (int i = 0; i < age.length; i++) {
-			if (ageInput == age[i]) {
-				ageScore = agePoint[i];
-			}
-
-		}
+		ageScore = agePoint[age];
 
 	}
 
@@ -179,6 +173,14 @@ public class CrsScore {
 		System.out.println("adaptabilityScoreTotal " + adaptabilityScoreTotal);
 		finalScore = educationScore + experienceScore + ageScore + ieltsTotalScore + adaptabilityScoreTotal;
 		System.out.println("Final CRS Score: " + finalScore);
-	}
+		if (finalScore > 67) {
+			System.out.println("You qualify to submit an Expression of Interest (EOI) to Immigration Canada");
+		}
 
+		else {
+			System.out.println("Ineligible to submit an Expression of Interest (EOI) to Immigration Canada");
+
+		}
+
+	}
 }

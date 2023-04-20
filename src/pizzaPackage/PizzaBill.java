@@ -3,7 +3,7 @@ package pizzaPackage;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PizzaPrice {
+public class PizzaBill {
 
 	String[] cheesePizza = { "small", "medium", "large" };
 	int[] pizzaPrice = { 15, 20, 25 };
@@ -18,7 +18,7 @@ public class PizzaPrice {
 
 	Scanner sc = new Scanner(System.in);
 
-	void pizzaBill() {
+	void pizzaPrice() {
 	
 		System.out.println("enter the pizza needed " + (Arrays.toString(cheesePizza)));
 		orderedPizza = sc.next();

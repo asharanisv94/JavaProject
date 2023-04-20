@@ -3,7 +3,7 @@ package pizzaParameterPackage;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PizzaPrice {
+public class PriceBill {
 	String[] cheesePizza = { "small", "medium", "large" };
 	int[] pizzaPrice = { 15, 20, 25 };
 
@@ -31,7 +31,7 @@ public class PizzaPrice {
 		}
 	}
 
-	boolean cheese() {
+	boolean isCheeseNeeded() {
 		
 		if (isCheeseNeeded = true) {
 			cheeseToppingPrice = 1;
@@ -40,7 +40,7 @@ public class PizzaPrice {
 		return isCheeseNeeded;
 	}
 
-	boolean pepperoni(String orderedPizza) {
+	boolean isPepperoniNeeded(String orderedPizza) {
 		if (isPepperoniNeeded) {
 			if (orderedPizza.equals("small")) {
 				pepperoniToppingPrice = 2;

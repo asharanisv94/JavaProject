@@ -20,50 +20,70 @@ public class PhonePlanSelect {
 	Scanner sc = new Scanner(System.in);
 
 	void samsungPlanDetails() {
-		System.out.println("Enter the  SAMSUNG model you need");
-		System.out.println(Arrays.toString(samsungModels));
+		boolean invalid = true;
+		do {
+			System.out.println("Enter the  SAMSUNG model you need");
+			System.out.println(Arrays.toString(samsungModels));
 
-		String modelSelected = sc.nextLine();
+			modelSelected = sc.nextLine();
 
-		for (int i = 0; i < samsungModels.length; i++) {
-			if (modelSelected.equalsIgnoreCase(samsungModels[i])) {
-				phoneTabPrice = samsungPrice[i];
+			for (int i = 0; i < samsungModels.length; i++) {
+				if (modelSelected.equalsIgnoreCase(samsungModels[i])) {
+					phoneTabPrice = samsungPrice[i];
+					System.out.println("Your phone price is" + phoneTabPrice);
+					invalid = false;
+				}
+
 			}
-		}
-
+			if (invalid == true)
+				System.out.println("Invalid entry.Enter again!!!");
+		} while (invalid == true);
 	}
 
 	void applePlanDetails() {
-		System.out.println("Enter the  APPLE model you need");
-		System.out.println(Arrays.toString(appleModels));
+		boolean invalid = true;
+		do {
+			System.out.println("Enter the  APPLE model you need");
+			System.out.println(Arrays.toString(appleModels));
 
-		modelSelected = sc.nextLine();
+			modelSelected = sc.nextLine();
 
-		for (int i = 0; i < appleModels.length; i++) {
-			if (modelSelected.equalsIgnoreCase(appleModels[i])) {
-				phoneTabPrice = applePrice[i];
+			for (int i = 0; i < appleModels.length; i++) {
+				if (modelSelected.equalsIgnoreCase(appleModels[i])) {
+					phoneTabPrice = applePrice[i];
+					System.out.println("Your phone price is" + phoneTabPrice);
+					invalid = false;
+				}
 			}
-		}
-
+			if (invalid == true)
+				System.out.println("Invalid entry.Enter again!!!");
+		} while (invalid == true);
 	}
 
 	void plan() {
-		System.out.println("Enter the  plan you need");
-		System.out.println(Arrays.toString(plan));
+		boolean invalid = true;
 
-		planSelected = sc.nextLine();
+		do {
+			System.out.println("Enter the  plan you need");
+			System.out.println(Arrays.toString(plan));
 
-		for (int i = 0; i < plan.length; i++) {
-			if (planSelected.equalsIgnoreCase(plan[i])) {
-				System.out.println("You have selected " + modelSelected + " with " + plan[i]);
-				phonePlanPrice = planPrice[i];
-				System.out.println("The monthlly Plan will be " + phonePlanPrice);
+			planSelected = sc.nextLine();
+
+			for (int i = 0; i < plan.length; i++) {
+				if (planSelected.equalsIgnoreCase(plan[i])) {
+					System.out.println("You have selected " + modelSelected + " with " + plan[i]);
+					phonePlanPrice = planPrice[i];
+					System.out.println("The monthlly Plan will be " + phonePlanPrice);
+					invalid = false;
+				}
 			}
-		}
+			if (invalid == true) {
+				System.out.println("Invalid entry.Enter again!!!");
+
+			}
+		} while (invalid == true);
 
 		totalPrice = phoneTabPrice + phonePlanPrice;
-		System.out.println("Total Monthky Amount is " + totalPrice);
-
+		System.out.println("Total Monthly Amount is " + totalPrice);
 	}
-
 }
