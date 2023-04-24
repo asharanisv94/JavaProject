@@ -2,7 +2,7 @@ package stringPackage;
 
 import java.util.*;
 
-public class CityNames {
+public class SearchCities {
 	Scanner sc = new Scanner(System.in);
 	String[] cities = { "Toronto", "Ottawa", "Brampton", "Hamilton", "London", "Mississauga", "Burlington", "Kingston",
 			"Kitchener" };

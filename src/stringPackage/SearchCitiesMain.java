@@ -2,10 +2,10 @@ package stringPackage;
 
 import java.util.Scanner;
 
-public class CitiesMain {
+public class SearchCitiesMain {
 
 	public static void main(String[] args) {
-		CityNames c = new CityNames();
+		SearchCities c = new SearchCities();
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Enter a city name to search: ");
