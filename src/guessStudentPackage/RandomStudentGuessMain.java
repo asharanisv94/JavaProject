@@ -1,14 +1,15 @@
 package guessStudentPackage;
 
+import java.io.IOException;
 import java.util.*;
 
 public class RandomStudentGuessMain {
 
-	public static void main(String[] arg) {
+	public static void main(String[] arg) throws IOException {
 		Random random = new Random();
 		RandomStudentGuess stud = new RandomStudentGuess();
-		int randomIndex = random.nextInt(stud.student.length);
-
+		List<String> studentListMain = stud.readFile();
+		int randomIndex = random.nextInt(studentListMain.size());
 		char[] randomNameArray = stud.selectRandomStudentName(randomIndex);
 		stud.guessStudentName(randomNameArray);
 	}

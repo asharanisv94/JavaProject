@@ -1,20 +1,33 @@
 package guessStudentPackage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RandomStudentGuess {
-	String student[] = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
-			"Kamaldeep", "Manpreetk", "Manpreets", "Mariya", "Namitha", "Neelam", "Nisha", "Parminder", "Rajat", "Rojy",
-			"Sojan", "Sucharita", "Vindhuja" };
+
+	List<String> studentList = new ArrayList<String>();
+
 	String studentName;
 	Scanner sc = new Scanner(System.in);
 
-	char[] selectRandomStudentName(int randomIndex) {
+	public List<String> readFile() throws IOException {
+		FileReader fr = new FileReader("nameList.txt");
+		BufferedReader br = new BufferedReader(fr);
+		String str;
+		while ((str = br.readLine()) != null) {
+			studentList.add(str);
+		}
+		return studentList;
+	}
 
-		studentName = student[randomIndex];
-
-		// System.out.println(randomIndex);
-		// System.out.println(studentName);
+	public char[] selectRandomStudentName(int randomIndex) throws IOException {
+		studentName = studentList.get(randomIndex);
+//		System.out.println(randomIndex);
+//		System.out.println(studentName);
 		char[] nameCharArray = new char[studentName.length()];
 		for (int i = 0; i < studentName.length(); i++) {
 			nameCharArray[i] = '-';
@@ -24,7 +37,7 @@ public class RandomStudentGuess {
 		return nameCharArray;
 	}
 
-	void guessStudentName(char[] nameCharArray) {
+	public void guessStudentName(char[] nameCharArray) {
 		int counter = 0;
 
 		do {
