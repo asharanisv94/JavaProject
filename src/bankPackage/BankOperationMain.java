@@ -9,7 +9,7 @@ public class BankOperationMain {
 
 		PersonAccount pa = new PersonAccount("A1000123", "Asha", 1000.0, 1234, "12345678");
 
-		BankOperation bo = new BankOperation(pa.getAvailableFunds());
+		BankOperation bo = null;
 
 		System.out.println("Select the type of Service you want 1.ATM  or 2.Online Banking");
 		int selectedServiceType = sc.nextInt();
@@ -17,15 +17,27 @@ public class BankOperationMain {
 		case 1: {
 			System.out.println("Enter your PIN:");
 			int enteredPin = sc.nextInt();
-			ATM atm = new ATM(pa.getAvailableFunds(), pa.getPin());
-			atm.isPinCorrect(enteredPin);
+			bo = new ATM(pa.getAvailableFunds());
+			if (pa.getPin() == enteredPin) {
+				System.out.println("Correct PIN.");
+			} else {
+				System.out.println("Incorrect PIN.");
+				System.exit(0);
+			}
 			break;
 		}
 		case 2: {
 			System.out.println("Enter your Online Banking Password:");
 			String enteredPassword = sc.next();
-			OnlineBanking ob = new OnlineBanking(pa.getAvailableFunds(), pa.getOnlineBankingPassword());
-			ob.isBankingPasswordCorrect(enteredPassword);
+			bo = new OnlineBanking(pa.getAvailableFunds());
+			OnlineBanking ob = new OnlineBanking(pa.getAvailableFunds());
+			if (enteredPassword.equals(pa.getOnlineBankingPassword())) {
+				System.out.println("Correct password.");
+			} else {
+				System.out.println("Incorrect Password.");
+				System.exit(0);
+			}
+
 			break;
 		}
 		}

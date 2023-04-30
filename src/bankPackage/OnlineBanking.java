@@ -1,20 +1,36 @@
 package bankPackage;
 
 public class OnlineBanking extends BankOperation {
-	private String onlineBankingPassword;
 
-	public OnlineBanking(double initialDeposit, String onlineBankingPassword) {
-		super(initialDeposit);
-		this.onlineBankingPassword = onlineBankingPassword;
+	public OnlineBanking(double initialDeposit) {
+		super.balance = initialDeposit;
 	}
 
-	public void isBankingPasswordCorrect(String enteredPassword) {
-		if (onlineBankingPassword.equals(enteredPassword)) {
-			System.out.println("Correct password.");
+	@Override
+	public double deposit(double amount) {
+
+		balance = balance + amount;
+		System.out.println(amount + " Deposited Successfully through Online Banking.");
+		return balance;
+	}
+
+	@Override
+	public double withdraw(double amount) {
+		if (balance < amount) {
+			System.out.println("Insufficient Balance in account. Withdrawal Failed through Online Banking.");
+
 		} else {
-			System.out.println("Incorrect Password.");
-			System.exit(0);
+			balance = balance - amount;
+			System.out.println("Withdrawn amount through Online Banking: " + amount + " \nNew Balance: " + balance);
 		}
 
+		return balance;
 	}
+
+	@Override
+	public double viewBalance() {
+		System.out.println("Your Current Balance through Online Banking: " + balance);
+		return balance;
+	}
+
 }

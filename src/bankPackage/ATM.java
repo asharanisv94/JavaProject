@@ -1,22 +1,40 @@
 package bankPackage;
 
 public class ATM extends BankOperation {
-	private int pin;
 
-	public ATM(double initialDeposit, int pin) {
-		super(initialDeposit);
-		this.pin = pin;
-
+	public ATM(double initialDeposit) {
+		super.balance = initialDeposit;
 	}
 
-	public void isPinCorrect(int enteredPin) {
-		if (enteredPin == pin) {
-			System.out.println("Correct PIN.");
-		} else if (enteredPin != pin) {
-			System.out.println("Incorrect PIN.");
-			System.exit(0);
+	@Override
+	public double deposit(double amount) {
 
+		balance = balance + amount;
+		System.out.println(amount + " Deposited Successfully through ATM.");
+		return balance;
+	}
+
+	@Override
+	public double withdraw(double amount) {
+		if (balance < amount) {
+			System.out.println("Insufficient Balance in account. ATM Withdrawal Failed.");
+
+		} else {
+			balance = balance - amount;
+			System.out.println("Withdrawn amount through ATM: " + amount + "\nNew Balance: " + balance);
 		}
+
+		return balance;
+	}
+
+	@Override
+	public double viewBalance() {
+		System.out.println("Your Current Balance through ATM: " + balance);
+		return balance;
+	}
+
+	public ATM() {
+
 	}
 
 }
