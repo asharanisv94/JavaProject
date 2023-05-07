@@ -8,5 +8,14 @@ public static void main(String[] args) {
 	
 	System.out.println(t.getName());
 	
+	t.setAge(20);
+	System.out.println(t.getAge());
+	
+	System.out.println("***************");
+	t.setAge(10);
+	System.out.println(t.getAge());
+	
+	
 }
+
 }
