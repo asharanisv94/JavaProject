@@ -1,36 +1,35 @@
 package bankAbstractPackage;
 
 public abstract class BankOperations {
-	  protected double balance;
-    
-	  public abstract void changePinPassword(String oldPin, String newPin);
-   
+	protected double balance;
 
- 	public BankOperations(double initialDeposit) {
- 		balance = initialDeposit;
- 	}
- 	public double deposit(double amount) {
+	public abstract void changePinPassword(String oldPin, String newPin);
 
- 		balance = balance + amount;
- 		System.out.println(amount + " Deposited Successfully.");
- 		return balance;
- 	}
+	public BankOperations(double initialDeposit) {
+		balance = initialDeposit;
+	}
 
+	public double deposit(double amount) {
 
- 	public double withdraw(double amount) {
- 		if (balance < amount) {
- 			System.out.println("Insufficient Balance in account.  Withdrawal Failed.");
+		balance = balance + amount;
+		System.out.println(amount + " Deposited Successfully.");
+		return balance;
+	}
 
- 		} else {
- 			balance = balance - amount;
- 			System.out.println("Withdrawn amount  : " + amount + "\nNew Balance: " + balance);
- 		}
+	public double withdraw(double amount) {
+		if (balance < amount) {
+			System.out.println("Insufficient Balance in account.  Withdrawal Failed.");
 
- 		return balance;
- 	}
+		} else {
+			balance = balance - amount;
+			System.out.println("Withdrawn amount  : " + amount + "\nNew Balance: " + balance);
+		}
 
- 	public double viewBalance() {
- 		System.out.println("Your Current Balance : " + balance);
- 		return balance;
- 	}
+		return balance;
+	}
+
+	public double viewBalance() {
+		System.out.println("Your Current Balance : " + balance);
+		return balance;
+	}
 }

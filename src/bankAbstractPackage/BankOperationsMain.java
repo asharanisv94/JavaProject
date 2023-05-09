@@ -8,7 +8,42 @@ public class BankOperationsMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		PersonAccount person = new PersonAccount("A1000123", "Asha", 1000.0, "1234", "12345678");
+		PersonAccount person1 = new PersonAccount("A1000123", "Asha", 1000.0, "1234", "12345678");
+		PersonAccount person2 = new PersonAccount("A1000005", "Anu", 5000.0, "5555", "55555555");
+		PersonAccount person3 = new PersonAccount("A1000006", "Manu", 6000.0, "6666", "66666666");
+		PersonAccount person4 = new PersonAccount("A1000007", "Tinu", 7000.0, "7777", "77777777");
+		PersonAccount person5 = new PersonAccount("A1000008", "Vinu", 8000.0, "8888", "88888888");
+
+		PersonAccount person = null;
+
+		System.out.println("Enter your Account number");
+		String accountNumberMain = sc.next();
+
+		switch (accountNumberMain) {
+		case "A1000123": {
+			person = person1;
+			break;
+		}
+		case "A1000005": {
+			person = person2;
+			break;
+		}
+		case "A1000006": {
+			person = person3;
+			break;
+		}
+		case "A1000007": {
+			person = person4;
+			break;
+		}
+		case "A1000008": {
+			person = person5;
+			break;
+		}
+		default:
+			System.out.println("Invalid Account number provided.");
+			System.exit(0);
+		}
 
 		BankOperations bank = null;
 		bank = new ATM(person.getAvailableFunds());
@@ -36,7 +71,6 @@ public class BankOperationsMain {
 						System.out.println("Enter your new ATM pin");
 						newPin = sc.next();
 
-						bank = new ATM(person.getAvailableFunds());
 						bank.changePinPassword(oldPin, newPin);
 						person.setPin(newPin);
 
@@ -109,7 +143,11 @@ public class BankOperationsMain {
 			bank.viewBalance();
 			break;
 		}
+		default: {
+			System.out.println("invalid option");
 		}
 
+		}
 	}
+
 }
