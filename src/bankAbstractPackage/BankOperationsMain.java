@@ -8,45 +8,28 @@ public class BankOperationsMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		PersonAccount person1 = new PersonAccount("A1000123", "Asha", 1000.0, "1234", "12345678");
-		PersonAccount person2 = new PersonAccount("A1000005", "Anu", 5000.0, "5555", "55555555");
-		PersonAccount person3 = new PersonAccount("A1000006", "Manu", 6000.0, "6666", "66666666");
-		PersonAccount person4 = new PersonAccount("A1000007", "Tinu", 7000.0, "7777", "77777777");
-		PersonAccount person5 = new PersonAccount("A1000008", "Vinu", 8000.0, "8888", "88888888");
+		PersonAccount asha = new PersonAccount("A1000123", "Asha", 1000.0, "1234", "12345678");
+		PersonAccount anu = new PersonAccount("A1000005", "Anu", 5000.0, "5555", "55555555");
+		PersonAccount manu = new PersonAccount("A1000006", "Manu", 6000.0, "6666", "66666666");
+		PersonAccount tinu = new PersonAccount("A1000007", "Tinu", 7000.0, "7777", "77777777");
+		PersonAccount vinu = new PersonAccount("A1000008", "Vinu", 8000.0, "8888", "88888888");
+
+		PersonAccount[] personArray = { asha, anu, manu, tinu, vinu };
 
 		PersonAccount person = null;
 
 		System.out.println("Enter your Account number");
 		String accountNumberMain = sc.next();
 
-		switch (accountNumberMain) {
-		case "A1000123": {
-			person = person1;
-			break;
-		}
-		case "A1000005": {
-			person = person2;
-			break;
-		}
-		case "A1000006": {
-			person = person3;
-			break;
-		}
-		case "A1000007": {
-			person = person4;
-			break;
-		}
-		case "A1000008": {
-			person = person5;
-			break;
-		}
-		default:
-			System.out.println("Invalid Account number provided.");
-			System.exit(0);
+		for (int i = 0; i < personArray.length; i++) {
+			if (personArray[i].getAccountNumber().equalsIgnoreCase(accountNumberMain)) {
+				person = personArray[i];
+				break;
+			}
 		}
 
 		BankOperations bank = null;
-		bank = new ATM(person.getAvailableFunds());
+		bank = new ATM();
 
 		int userInput;
 		do {
@@ -70,10 +53,7 @@ public class BankOperationsMain {
 					if (isPinChangeRequired.equalsIgnoreCase("y")) {
 						System.out.println("Enter your new ATM pin");
 						newPin = sc.next();
-
-						bank.changePinPassword(oldPin, newPin);
-						person.setPin(newPin);
-
+						bank.changePinPassword(person, oldPin, newPin);
 					}
 
 				} else {
@@ -97,9 +77,9 @@ public class BankOperationsMain {
 						System.out.println("Enter your new Online Password");
 						String newPassword = sc.next();
 
-						bank = new OnlineBanking(person.getAvailableFunds());
-						bank.changePinPassword(oldPassword, newPassword);
-						person.setPassword(newPassword);
+						bank = new OnlineBanking();
+						bank.changePinPassword(person, oldPassword, newPassword);
+
 					}
 
 				} else {
@@ -124,23 +104,23 @@ public class BankOperationsMain {
 
 		switch (transactionType) {
 		case 1: {
-			bank.viewBalance();
+			bank.viewBalance(person);
 			System.out.println("Please enter deposit amount");
 			int depositAmount = sc.nextInt();
-			bank.deposit(depositAmount);
-			bank.viewBalance();
+			bank.deposit(person, depositAmount);
+			bank.viewBalance(person);
 			break;
 		}
 		case 2: {
-			bank.viewBalance();
+			bank.viewBalance(person);
 			System.out.println("Please enter  amount to be withdrawn");
 			int withdrawAmount = sc.nextInt();
-			bank.withdraw(withdrawAmount);
-			bank.viewBalance();
+			bank.withdraw(person, withdrawAmount);
+			bank.viewBalance(person);
 			break;
 		}
 		case 3: {
-			bank.viewBalance();
+			bank.viewBalance(person);
 			break;
 		}
 		default: {

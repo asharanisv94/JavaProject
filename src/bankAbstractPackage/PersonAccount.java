@@ -44,4 +44,9 @@ public class PersonAccount {
 
 	}
 
+	public void setAvailableFunds(double amount) {
+		this.availableFunds = amount;
+
+	}
+
 }
