@@ -9,11 +9,13 @@ import java.util.Scanner;
 
 public class RandomStudentGuess {
 
-	List<String> studentList = new ArrayList<String>();
-
+	
 	String studentName;
 	Scanner sc = new Scanner(System.in);
 
+	List<String> studentList = new ArrayList<String>();
+
+	
 	public List<String> readFile() throws IOException {
 		FileReader fr = new FileReader("nameList.txt");
 		BufferedReader br = new BufferedReader(fr);

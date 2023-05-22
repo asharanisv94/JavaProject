@@ -4,10 +4,10 @@ public abstract class BankOperations {
 
 	public abstract void changePinPassword(PersonAccount person, String oldPin, String newPin);
 
-	public double deposit(PersonAccount person, double amount) {
+	public void deposit(PersonAccount person, double amount) {
 		person.setAvailableFunds(person.getAvailableFunds() + amount);
 		System.out.println(amount + " Deposited Successfully.");
-		return person.getAvailableFunds();
+	//	return person.getAvailableFunds();
 	}
 
 	public double withdraw(PersonAccount person, double amount) {
