@@ -13,9 +13,9 @@ public class R1 extends Rocket {
 
 	@Override
 	public boolean launch() {
-		int a= (int) Math.random();
+	
 		boolean launchSuccess;
-		double random = new Random().nextDouble() + new Random().nextInt();
+		double random =  new Random().nextInt();
 		double explosionChance = explosionChancePercentage * getCurrentWeight() / getMaxWeight();
 		//System.out.println("launch explosionChancePercentage : " + explosionChancePercentage);
 		//System.out.println("launch random: " + random);
@@ -30,7 +30,7 @@ public class R1 extends Rocket {
 	@Override
 	public boolean land() {
 		boolean landSuccess;
-		double random = new Random().nextDouble() + new Random().nextInt();
+		double random =   new Random().nextInt();
 		double crashingChance = crashingChancePercentage * getCurrentWeight() / getMaxWeight();
 		//System.out.println("land crashingChance : " + crashingChance);
 		// System.out.println("land random: " + random);
