@@ -67,14 +67,14 @@ public class Simulation {
 	public int runSimulation(ArrayList<Rocket> rocketList) {
 		int totalCost = 0;
 		for (Rocket rocket : rocketList) {
-			totalCost += rocket.getRocketCost();
-
 			while (!rocket.launch() || !rocket.land()) {
 				totalCost += rocket.getRocketCost();
-				//System.out.println("totalBudget when launch or land fail : " + totalCost);
+				 System.out.println("Current totalBudget when Launch fail or Land fail: " +
+				 totalCost );
 			}
+			totalCost += rocket.getRocketCost();
+			System.out.println("Current totalBudget :" + totalCost);
 		}
-
 		return totalCost;
 	}
 }
