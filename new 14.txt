@@ -1,0 +1,7 @@
+I am currently working on a software project that involves developing an application capable of automatically generating and sending reports to commercial clients. These reports are sent to notify clients about completed payments made on their accounts.
+The project team was leveraging various technologies to achieve the desired functionality. The core technology stack includes the use of a user interface (UI), REST APIs, and a backend powered by an SQL Server database. 
+
+
+
+In our testing approach for the software project, we have utilized several tools and frameworks to ensure comprehensive and effective testing. These include Selenium with Java, Rest Assured API, Cucumber framework, and TestNG.
+In addition to the tools and frameworks mentioned earlier, our testing approach for the software project also incorporates the use of Maven as the build tool, Jenkins for continuous integration and continuous delivery (CI/CD) processes, JIRA for issue tracking, Selenium Grid for distributed testing and Git for version control.
